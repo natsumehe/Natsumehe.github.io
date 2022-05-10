@@ -14,8 +14,8 @@ ak = 'A1l2PXFLZ9eUElzprjeTfDN1NlcYw52B'
 sk='7LFPvLbmz75To0bgFCx3ml9j1o7dLGvl'
 # 目标地理位置,这里可以外部导入
 
-
-a=['北京','首都医科大学','天坛医院','天通苑','德州','杭州','上海','北京大学','天津']
+a = ['庐江马槽']
+''' # a=['北京','首都医大学','天坛医院','天通苑','德州','杭州','上海','北京大学','天津'] '''
 # 打开保存位置
 csv_obj = open('E:\code\data.csv\data.csv', 'w',newline='', encoding="GBK")
 #写入title
