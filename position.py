@@ -3,7 +3,21 @@ import urllib.request, urllib.parse, urllib.error
 import json
 import hashlib
 import csv
-import xlwings as xw 
+import xlwings as xw
+
+app = xw.App(visible = True,add_book = False)
+app.display_alerts = False
+
+wb = xw.Book('E:\code\data.csv\扶贫.xlsx')
+sheet = wb.sheets['入账主体的地点']
+
+feixi = sheet.range('A1:A73').value
+changfeng = sheet .range('C1:C58').value
+feidong = sheet.range('E1:E66').value
+lujiang = sheet.range('G1:G94').value
+chaohu = sheet.range('I1:I128').value
+
+
 
 
 # 输出格式为json
@@ -14,7 +28,8 @@ ak = 'A1l2PXFLZ9eUElzprjeTfDN1NlcYw52B'
 sk='7LFPvLbmz75To0bgFCx3ml9j1o7dLGvl'
 # 目标地理位置,这里可以外部导入
 
-a = ['庐江马槽']
+#将excel中的位置地点名称传入到百度查询中
+a = feixi + changfeng + feidong + lujiang + chaohu 
 ''' # a=['北京','首都医大学','天坛医院','天通苑','德州','杭州','上海','北京大学','天津'] '''
 # 打开保存位置
 csv_obj = open('E:\code\data.csv\data.csv', 'w',newline='', encoding="GBK")
@@ -46,6 +61,11 @@ for i in a:
     csv.writer(csv_obj).writerow([i,lng,lat])
 
 
+print(len(a))
 # 关闭csv文件
 csv_obj.close()
+
+#关闭excle
+wb.close
+app.quit
 
